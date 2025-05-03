@@ -1,6 +1,9 @@
 package com.example.lab_testing.services;
 
+import com.example.lab_testing.dtos.CreatePatientDTO;
+import com.example.lab_testing.models.Employee;
 import com.example.lab_testing.models.Patient;
+import com.example.lab_testing.repositories.EmployeeRepository;
 import com.example.lab_testing.repositories.PatientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -16,7 +19,19 @@ public class PatientService {
     @Autowired
     private PatientRepository patientRepository;
 
-    public Patient createPatient(Patient patient){
+    @Autowired
+    EmployeeRepository employeeRepository;
+
+    public Patient createPatient(CreatePatientDTO dto){
+
+        Patient patient = new Patient(dto.getName(), dto.getDateOfBirth());
+
+        Employee employee = employeeRepository.findById(dto.getEmployeeId())
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Empleado no encontrado"));
+
+
+        patient.setEmployee(employee);
+
         return patientRepository.save(patient);
     }
 

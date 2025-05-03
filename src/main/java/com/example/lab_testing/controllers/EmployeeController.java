@@ -38,7 +38,7 @@ public class EmployeeController {
     }
 
 
-    //todo: probar este endpoint en postman
+
     @PostMapping()
     @ResponseStatus(HttpStatus.CREATED)
     public Employee createEmployee(@RequestBody @Valid Employee employee){
@@ -46,7 +46,7 @@ public class EmployeeController {
     }
 
 
-    //todo: probar este endpoint en postman
+
     @PatchMapping("/{id}/status")
     @ResponseStatus(HttpStatus.OK)
     public Employee updateDoctorStatus(@PathVariable int id, @Valid @RequestBody UpdateStatusDTO dto) {
@@ -55,7 +55,7 @@ public class EmployeeController {
     }
 
 
-    //todo: probar este endpoint en postman
+
     @PatchMapping("/{id}/department")
     @ResponseStatus(HttpStatus.OK)
     public Employee updateDoctorDepartment(@PathVariable int id, @Valid @RequestBody UpdateDepartmentDTO dto) {

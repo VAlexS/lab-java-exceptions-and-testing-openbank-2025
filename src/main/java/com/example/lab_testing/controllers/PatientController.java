@@ -1,6 +1,7 @@
 package com.example.lab_testing.controllers;
 
 
+import com.example.lab_testing.dtos.CreatePatientDTO;
 import com.example.lab_testing.models.Patient;
 import com.example.lab_testing.services.PatientService;
 import jakarta.validation.Valid;
@@ -45,11 +46,11 @@ public class PatientController {
        return patientService.getPatientsByDoctorWithStatusOff();
     }
 
-    //todo: probar este endpoint en postman
+    //todo: investigar el error que se genera al asignarle un enfermero al paciente
     @PostMapping()
     @ResponseStatus(HttpStatus.CREATED)
-    public Patient createPatient(@RequestBody @Valid Patient patient){
-        return patientService.createPatient(patient);
+    public Patient createPatient(@RequestBody @Valid CreatePatientDTO patientDTO){
+        return patientService.createPatient(patientDTO);
     }
 
     //todo: probar este endpoint en postman
