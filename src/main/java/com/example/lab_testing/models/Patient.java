@@ -2,15 +2,15 @@ package com.example.lab_testing.models;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import java.sql.Date;
 
 @Entity
 @Table(name = "patient")
-@Getter
-@Setter
+@Data
+@RequiredArgsConstructor
+@NoArgsConstructor
 public class Patient {
 
     @Id
@@ -28,18 +28,18 @@ public class Patient {
     @JsonBackReference
     private Employee employee;
 
-    public Patient() {
-    }
+    /* Patient() {
+    }*/
 
-    public Patient(String name, Date dateOfBirth) {
+    /*public Patient(String name, Date dateOfBirth) {
         this.name = name;
         this.dateOfBirth = dateOfBirth;
-    }
+    }*/
 
 
 
 
-    @Override
+    /*@Override
     public String toString() {
         return "Patient{" +
                 "id=" + id +
@@ -47,6 +47,6 @@ public class Patient {
                 ", dateOfBirth=" + dateOfBirth +
                 ", admitted_by=" + employee +
                 '}';
-    }
+    }*/
 }
 

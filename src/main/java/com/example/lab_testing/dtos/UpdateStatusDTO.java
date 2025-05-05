@@ -1,11 +1,10 @@
 package com.example.lab_testing.dtos;
 
 import jakarta.validation.constraints.NotBlank;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
-@Setter
-@Getter
+
+@Data //directamente añade metodos get, set, toString, equals, hashCode
 public class UpdateStatusDTO {
 
     @NotBlank(message = "El status no puede estar vacío")

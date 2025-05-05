@@ -2,16 +2,19 @@ package com.example.lab_testing.models;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.RequiredArgsConstructor;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity
 @Table(name = "employee")
-@Getter
-@Setter
+@Data
+@RequiredArgsConstructor
+@NoArgsConstructor
 public class Employee {
 
     @Id
@@ -29,18 +32,18 @@ public class Employee {
     @JsonManagedReference
     private List<Patient> patients = new ArrayList<>();
 
-    public Employee() {
-    }
+    /*public Employee() {
+    }*/
 
-    public Employee(int employeeID, String department, String name, Status status) {
+    /*public Employee(int employeeID, String department, String name, Status status) {
         this.employeeID = employeeID;
         this.department = department;
         this.name = name;
         this.status = status;
-    }
+    }*/
 
 
-    @Override
+    /*@Override
     public String toString() {
         return "Employee{" +
                 "department='" + department + '\'' +
@@ -48,6 +51,6 @@ public class Employee {
                 ", status=" + status +
                 ", employeeID=" + employeeID +
                 '}';
-    }
+    }*/
 }
 
