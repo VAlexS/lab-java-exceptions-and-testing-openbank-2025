@@ -2,12 +2,16 @@ package com.example.lab_testing.models;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity
 @Table(name = "employee")
+@Getter
+@Setter
 public class Employee {
 
     @Id
@@ -35,45 +39,6 @@ public class Employee {
         this.status = status;
     }
 
-    public int getEmployeeId() {
-        return employeeID;
-    }
-
-    public void setEmployeeId(int employeeID) {
-        this.employeeID = employeeID;
-    }
-
-    public String getDepartment() {
-        return department;
-    }
-
-    public void setDepartment(String department) {
-        this.department = department;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public Status getStatus() {
-        return status;
-    }
-
-    public void setStatus(Status status) {
-        this.status = status;
-    }
-
-    public List<Patient> getPatients() {
-        return patients;
-    }
-
-    public void setPatients(List<Patient> patients) {
-        this.patients = patients;
-    }
 
     @Override
     public String toString() {
