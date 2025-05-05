@@ -52,7 +52,7 @@ class LabTestingApplicationTests {
 		var employeeToDelete = employeeRepository.findById(EMPLOYEE_ID);
 
 		if (employeeToDelete.isPresent())
-			employeeRepository.deleteById(employeeToDelete.get().getEmployeeId());
+			employeeRepository.deleteById(employeeToDelete.get().getEmployeeID());
 
 	}
 
