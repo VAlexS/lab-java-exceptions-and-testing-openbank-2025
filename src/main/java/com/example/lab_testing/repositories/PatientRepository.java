@@ -8,6 +8,7 @@ import org.springframework.data.repository.query.Param;
 
 import java.sql.Date;
 import java.util.List;
+import java.util.Optional;
 
 public interface PatientRepository extends JpaRepository<Patient, Integer> {
 
@@ -25,4 +26,7 @@ public interface PatientRepository extends JpaRepository<Patient, Integer> {
     @Query("SELECT p FROM Patient p WHERE "
             + "p.employee.status = 'OFF'")
     List<Patient> findPatientsByDoctorWithStatusOff();
+
+
+    Optional<Patient> findPatientByName(String name);
 }

@@ -1,5 +1,6 @@
 package com.example.lab_testing.services;
 
+import com.example.lab_testing.exceptions.ObjectAlreadyExistException;
 import com.example.lab_testing.models.Employee;
 import com.example.lab_testing.models.Status;
 import com.example.lab_testing.repositories.EmployeeRepository;
@@ -16,7 +17,21 @@ public class EmployeeService {
     @Autowired
     private EmployeeRepository employeeRepository;
 
+    //todo: investigar como ver el mensaje de error en postman
     public Employee createEmployee(Employee employee){
+        var employeeFoundByName = employeeRepository.findEmployeeByName(employee.getName());
+
+        var employeeFoundById = employeeRepository.findById(employee.getEmployeeId());
+
+       if (employeeFoundByName.isPresent())
+           throw new ObjectAlreadyExistException("El empleado ya existe en la base de datos");
+
+
+       if (employeeFoundById.isPresent())
+           throw new ObjectAlreadyExistException("El empleado que quieres crear tiene un id existente");
+
+
+
         return employeeRepository.save(employee);
     }
 

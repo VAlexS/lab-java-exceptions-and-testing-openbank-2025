@@ -3,6 +3,7 @@ package com.example.lab_testing.models;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -22,7 +23,7 @@ public class Employee {
 
     @OneToMany(mappedBy = "employee", fetch = FetchType.EAGER)
     @JsonManagedReference
-    private List<Patient> patients;
+    private List<Patient> patients = new ArrayList<>();
 
     public Employee() {
     }

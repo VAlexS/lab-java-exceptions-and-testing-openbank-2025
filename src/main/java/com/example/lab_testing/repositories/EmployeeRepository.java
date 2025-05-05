@@ -8,6 +8,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface EmployeeRepository extends JpaRepository<Employee, Integer> {
 
@@ -15,4 +16,7 @@ public interface EmployeeRepository extends JpaRepository<Employee, Integer> {
             + "(:status IS NULL OR e.status = :status) "
             + "AND (:department IS NULL OR e.department LIKE %:department%)")
     List<Employee> findEmployeesByFilters(@Param("status") Status status, @Param("department") String department);
+
+
+    Optional<Employee> findEmployeeByName(String name);
 }

@@ -64,13 +64,14 @@ public class Patient {
         this.employee = employee;
     }
 
+
     @Override
     public String toString() {
         return "Patient{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", dateOfBirth=" + dateOfBirth +
-                ", employee=" + employee +
+                ", admitted_by=" + employee +
                 '}';
     }
 }

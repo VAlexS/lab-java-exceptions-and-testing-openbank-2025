@@ -1,7 +1,6 @@
 package com.example.lab_testing.services;
 
-import com.example.lab_testing.dtos.CreatePatientDTO;
-import com.example.lab_testing.models.Employee;
+import com.example.lab_testing.exceptions.ObjectAlreadyExistException;
 import com.example.lab_testing.models.Patient;
 import com.example.lab_testing.repositories.EmployeeRepository;
 import com.example.lab_testing.repositories.PatientRepository;
@@ -22,17 +21,19 @@ public class PatientService {
     @Autowired
     EmployeeRepository employeeRepository;
 
-    public Patient createPatient(CreatePatientDTO dto){
 
-        Patient patient = new Patient(dto.getName(), dto.getDateOfBirth());
+    public Patient createPatient(Patient patient){
 
-        Employee employee = employeeRepository.findById(dto.getEmployeeId())
-                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Empleado no encontrado"));
+        var patientFoundByName = patientRepository.findPatientByName(patient.getName());
 
+        if (patientFoundByName.isPresent())
+            throw new ObjectAlreadyExistException("El paciente con este nombre ya existe");
 
-        patient.setEmployee(employee);
+        Patient patientToSave = new Patient(patient.getName(), patient.getDateOfBirth());
+        patientToSave.setEmployee(patient.getEmployee());
 
         return patientRepository.save(patient);
+
     }
 
     public Patient updatePatient(int id, Patient patient){
