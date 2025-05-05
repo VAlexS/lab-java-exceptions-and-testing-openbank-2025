@@ -28,25 +28,6 @@ public class Patient {
     @JsonBackReference
     private Employee employee;
 
-    /* Patient() {
-    }*/
 
-    /*public Patient(String name, Date dateOfBirth) {
-        this.name = name;
-        this.dateOfBirth = dateOfBirth;
-    }*/
-
-
-
-
-    /*@Override
-    public String toString() {
-        return "Patient{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", dateOfBirth=" + dateOfBirth +
-                ", admitted_by=" + employee +
-                '}';
-    }*/
 }
 

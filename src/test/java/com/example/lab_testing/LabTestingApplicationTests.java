@@ -16,7 +16,6 @@ import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
 
-import static org.junit.jupiter.api.Assertions.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -58,7 +57,9 @@ class LabTestingApplicationTests {
 
 	@Test
 	void createEmployee() {
-		Employee employee = new Employee(EMPLOYEE_ID, DEPARTMENT, NAME, Status.ON);
+		//Employee employee = new Employee(EMPLOYEE_ID, DEPARTMENT, NAME, Status.ON);
+
+		Employee employee = new Employee(2, "", "", Status.ON);
 
         try {
             String employeeJSON = objectMapper.writeValueAsString(employee); //hemos convertido el empleado a json

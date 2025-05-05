@@ -2,6 +2,7 @@ package com.example.lab_testing.models;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -13,44 +14,28 @@ import java.util.List;
 @Entity
 @Table(name = "employee")
 @Data
-@RequiredArgsConstructor
 @NoArgsConstructor
+@RequiredArgsConstructor
 public class Employee {
 
     @Id
     @Column(name = "employee_id")
     private int employeeID;
 
+    @NotNull
     private String department;
 
+    @NotNull
     private String name;
 
     @Enumerated(EnumType.STRING)
+    @NotNull
     private Status status;
 
     @OneToMany(mappedBy = "employee", fetch = FetchType.EAGER)
     @JsonManagedReference
     private List<Patient> patients = new ArrayList<>();
 
-    /*public Employee() {
-    }*/
 
-    /*public Employee(int employeeID, String department, String name, Status status) {
-        this.employeeID = employeeID;
-        this.department = department;
-        this.name = name;
-        this.status = status;
-    }*/
-
-
-    /*@Override
-    public String toString() {
-        return "Employee{" +
-                "department='" + department + '\'' +
-                ", name='" + name + '\'' +
-                ", status=" + status +
-                ", employeeID=" + employeeID +
-                '}';
-    }*/
 }
 
