@@ -11,14 +11,17 @@ import java.sql.Date;
 @Data
 @RequiredArgsConstructor
 @NoArgsConstructor
+@ToString(exclude = "employee")
 public class Patient {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
+    @NonNull
     private String name;
 
+    @NonNull
     @Column(name = "date_of_birth")
     private Date dateOfBirth;
 

@@ -3,10 +3,7 @@ package com.example.lab_testing.models;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.RequiredArgsConstructor;
+import lombok.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,16 +17,16 @@ public class Employee {
 
     @Id
     @Column(name = "employee_id")
-    private int employeeID;
+    private int employeeId;
 
-    @NotNull
+    @NonNull
     private String department;
 
-    @NotNull
+    @NonNull
     private String name;
 
     @Enumerated(EnumType.STRING)
-    @NotNull
+    @NonNull
     private Status status;
 
     @OneToMany(mappedBy = "employee", fetch = FetchType.EAGER)

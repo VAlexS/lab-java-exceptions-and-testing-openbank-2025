@@ -38,7 +38,9 @@ public class PatientService {
 
         patient.setEmployee(employeeToAssign);
 
-
+        System.out.println("=============================");
+        System.out.println("El paciente que recibimos es "+patient);
+        System.out.println("=============================");
 
 
         return patientRepository.save(patient);
