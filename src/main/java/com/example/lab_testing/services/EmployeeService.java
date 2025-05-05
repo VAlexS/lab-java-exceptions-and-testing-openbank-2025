@@ -21,7 +21,7 @@ public class EmployeeService {
     public Employee createEmployee(Employee employee){
         var employeeFoundByName = employeeRepository.findEmployeeByName(employee.getName());
 
-        var employeeFoundById = employeeRepository.findById(employee.getEmployeeId());
+        var employeeFoundById = employeeRepository.findById(employee.getEmployeeID());
 
        if (employeeFoundByName.isPresent())
            throw new ObjectAlreadyExistException("El empleado ya existe en la base de datos");
