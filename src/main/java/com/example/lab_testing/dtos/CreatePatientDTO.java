@@ -1,13 +1,10 @@
 package com.example.lab_testing.dtos;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
 import java.sql.Date;
 
-@Setter
-@Getter
+@Data
 public class CreatePatientDTO {
 
     private String name;
