@@ -1,5 +1,7 @@
 package com.example.lab_testing.dtos;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.sql.Date;
 
 public class CreatePatientDTO {
@@ -9,7 +11,8 @@ public class CreatePatientDTO {
     private Date dateOfBirth;
 
 
-    private int employeeId;
+
+    private int admittedBy;
 
     public String getName() {
         return name;
@@ -27,11 +30,14 @@ public class CreatePatientDTO {
         this.dateOfBirth = dateOfBirth;
     }
 
-    public int getEmployeeId() {
-        return employeeId;
+    public int getAdmittedBy() {
+        return admittedBy;
     }
 
-    public void setEmployeeId(int employeeId) {
-        this.employeeId = employeeId;
+    public void setAdmittedBy(int admittedBy) {
+        this.admittedBy = admittedBy;
     }
+
+
+
 }

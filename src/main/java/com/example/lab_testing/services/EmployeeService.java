@@ -17,7 +17,7 @@ public class EmployeeService {
     @Autowired
     private EmployeeRepository employeeRepository;
 
-    //todo: investigar como ver el mensaje de error en postman
+
     public Employee createEmployee(Employee employee){
         var employeeFoundByName = employeeRepository.findEmployeeByName(employee.getName());
 
