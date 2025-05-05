@@ -51,15 +51,15 @@ class LabTestingApplicationTests {
 		var employeeToDelete = employeeRepository.findById(EMPLOYEE_ID);
 
 		if (employeeToDelete.isPresent())
-			employeeRepository.deleteById(employeeToDelete.get().getEmployeeID());
+			employeeRepository.deleteById(employeeToDelete.get().getEmployeeId());
 
 	}
 
 	@Test
 	void createEmployee() {
-		//Employee employee = new Employee(EMPLOYEE_ID, DEPARTMENT, NAME, Status.ON);
+		Employee employee = new Employee(EMPLOYEE_ID, DEPARTMENT, NAME, Status.ON);
 
-		Employee employee = new Employee(2, "", "", Status.ON);
+
 
         try {
             String employeeJSON = objectMapper.writeValueAsString(employee); //hemos convertido el empleado a json

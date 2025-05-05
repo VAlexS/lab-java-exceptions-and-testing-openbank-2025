@@ -16,6 +16,7 @@ import java.util.List;
 public class Employee {
 
     @Id
+    @NonNull
     @Column(name = "employee_id")
     private int employeeId;
 
